@@ -1,18 +1,26 @@
-<body>
-    <h1>Manipulação de Dados</h1>
-    <p>A classe <code>Produto</code> foi criada com os seguintes atributos privados:</p>
-       <ul>
-        <li><code>int id</code></li>
-        <li><code>int qtde</code></li>
-        <li><code>double precoUnitario</code></li>
-        <li><code>double precoTotal</code></li>
-    </ul>
-    <p>Foram implementados os métodos <code>getters</code> e <code>setters</code>, e o preço total é calculado como a multiplicação da quantidade (<code>qtde</code>) pelo preço unitário (<code>precoUnitario</code>).</p>
-    <h2>Classe NotaFiscal</h2>
-    <p>A classe <code>NotaFiscal</code> foi criada para gerar os itens dos objetos da Nota Fiscal. Utiliza-se a classe <code>Random</code> na classe <code>Aplicação</code> para gerar itens aleatórios.</p>
-    <h2>Classe Aplicação</h2>
-    <p>A classe <code>Aplicação</code> utiliza <code>ArrayList</code> e <code>Random</code> para criar objetos da classe <code>Produto</code>. Além disso, ela oferece um menu interativo ao usuário, permitindo escolher se deseja armazenar os dados gerados aleatoriamente em formato CSV (formatação com vírgula) ou TXT (formatação tabular).</p>
-    <h2>Classe GerarItensDaNotaFiscal</h2>
-    <p>Nesta classe, é utilizado o polimorfismo para armazenar em disco os dados em formato CSV e TXT.</p>
-    <p>Para mais detalhes sobre a implementação e o funcionamento dessas classes, consulte o código-fonte no repositório.</p>
-</body>
+# Manipulação de Dados
+
+Este projeto tem como objetivo criar um sistema de manipulação de dados com três principais classes: `Produto`, `NotaFiscal`, e `Aplicação`. Aqui estão os detalhes:
+
+## Classe `Produto`
+
+A classe `Produto` é responsável por representar os itens que serão manipulados no sistema. Ela possui os seguintes atributos:
+
+- `id` (int): O identificador único do produto.
+- `qtde` (int): A quantidade do produto.
+- `precoUnitario` (double): O preço unitário do produto.
+- `precoTotal` (double): O preço total do produto, calculado como `qtde * precoUnitario`.
+
+A classe `Produto` também possui os métodos getters e setters para acessar e modificar os atributos.
+
+## Classe `NotaFiscal`
+
+A classe `NotaFiscal` é responsável por gerar itens de produtos para uma nota fiscal. Ela permite adicionar produtos à nota fiscal e mantém uma lista de produtos.
+
+## Classe `Aplicação`
+
+A classe `Aplicação` é o ponto de entrada do sistema. Ela utiliza `ArrayList` e `Random` para criar objetos `Produto` com dados gerados aleatoriamente. Além disso, a aplicação oferece um menu para o usuário escolher se deseja armazenar os dados em formato CSV (com formatação de vírgula) ou TXT (com formatação tabular). Os métodos das classes `ArmazenamentoCSV` e `ArmazenamentoTXT` são chamados de acordo com a escolha do usuário.
+
+## Classe `FormatoArmazenamento`
+
+A classe abstrata `FormatoArmazenamento` serve como base para as classes `ArmazenamentoCSV` e `ArmazenamentoTXT`, que implementam o polimorfismo para armazenar os dados em disco nos formatos CSV e TXT, respectivamente.
