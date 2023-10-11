@@ -24,20 +24,24 @@ public class Aplicacao {
         System.out.println("2. TXT");
 
         int escolha = scanner.nextInt();
-        scanner.nextLine(); // Limpa o buffer do scanner
+        scanner.nextLine(); 
+
+        FormatoArmazenamento formato = null;
 
         if (escolha == 1) {
-            FormatoArmazenamento formatoCSV = new ArmazenamentoCSV();
-            formatoCSV.armazenarDados(produtos);
+            formato = new ArmazenamentoCSV();
             System.out.println("Dados armazenados em formato CSV.");
         } else if (escolha == 2) {
-            FormatoArmazenamento formatoTXT = new ArmazenamentoTXT();
-            formatoTXT.armazenarDados(produtos);
+            formato = new ArmazenamentoTXT();
             System.out.println("Dados armazenados em formato TXT.");
         } else {
             System.out.println("Escolha inválida. Nenhum formato de armazenamento selecionado.");
         }
-
+        
+        if (formato != null) {
+            formato.armazenarDados(produtos);
+        }
         scanner.close();
+        
     }
 }
