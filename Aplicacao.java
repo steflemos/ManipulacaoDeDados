@@ -17,31 +17,39 @@ public class Aplicacao {
         }
 
         NotaFiscal notaFiscal = new NotaFiscal();
-        notaFiscal.adicionarItem(produtos.get(0)); // Adiciona um produto à nota fiscal como exemplo
+        notaFiscal.adicionarItem(produtos.get(0)); // Adiciona um produto à nota fiscal 
 
-        System.out.println("Escolha o formato de armazenamento:");
-        System.out.println("1. CSV");
-        System.out.println("2. TXT");
+        boolean continuar = true;
 
-        int escolha = scanner.nextInt();
-        scanner.nextLine(); 
+        while (continuar) {
+            System.out.println("Escolha o formato de armazenamento:");
+            System.out.println("1. CSV");
+            System.out.println("2. TXT");
 
-        FormatoArmazenamento formato = null;
+            int escolha = scanner.nextInt();
+            scanner.nextLine(); 
 
-        if (escolha == 1) {
-            formato = new ArmazenamentoCSV();
-            System.out.println("Dados armazenados em formato CSV.");
-        } else if (escolha == 2) {
-            formato = new ArmazenamentoTXT();
-            System.out.println("Dados armazenados em formato TXT.");
-        } else {
-            System.out.println("Escolha inválida. Nenhum formato de armazenamento selecionado.");
-        }
-        
-        if (formato != null) {
+            FormatoArmazenamento formato;
+            
+            if (escolha == 1) {
+                formato = new ArmazenamentoCSV();
+                System.out.println("Dados armazenados em formato CSV.");
+            } else {
+                formato = new ArmazenamentoTXT();
+                System.out.println("Dados armazenados em formato TXT.");
+            } 
+            
             formato.armazenarDados(produtos);
+
+            System.out.println("Deseja continuar? (Qualquer número para continuar, 0 para sair):");
+            int opcao = scanner.nextInt();
+            if (opcao == 0) {
+                continuar = false;
+            }
         }
-        scanner.close();
         
+        scanner.close(); 
     }
 }
+
+
